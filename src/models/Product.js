@@ -14,6 +14,10 @@ const Product = sequelize.define('product', {
         type: DataTypes.DECIMAL,
         allowNull: false
     },
+    brand:{
+        type: DataTypes.STRING,
+        allowNull: false
+    }
 //categoryId
 });
 
