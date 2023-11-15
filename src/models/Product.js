@@ -21,4 +21,7 @@ const Product = sequelize.define('product', {
 //categoryId
 });
 
+
+
+
 module.exports = Product;

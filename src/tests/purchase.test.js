@@ -29,7 +29,8 @@ test("POST -> 'URL_PURCHASE', should return status code 201 and res.body.quantit
     const productBody = {
       title:"huawei p60",
       description:"lorem1",
-      price:"200"
+      price:"200",
+      brand: "huawei"
     }
     product = await Product.create(productBody)
 

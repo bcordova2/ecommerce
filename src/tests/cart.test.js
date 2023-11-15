@@ -27,9 +27,10 @@ beforeAll(async()=>{
 test("POST -> 'URL_BASE_CART',should return status code 201 and res.body.quantity === body.quantity", async()=>{
 
     const productBody = {
-        title: "xiaomi 12",
+        title: "iphone 15",
         description: "lorem12",
-        price: "189.98"
+        price: "189.98",
+        brand: "apple"
     }
 
     product = await Product.create(productBody)

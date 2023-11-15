@@ -33,9 +33,10 @@ test("POST -> 'BASE_URL' should status code 201 and res.body.title === body.titl
     category = await Category.create(categoryBody)
 
     const product = {
-        title: "xiaomi 12",
+        title: "iphone 15",
         description: "lorem12",
         price: "189.98",
+        brand: "apple",
         categoryId: category.id
     }
 
@@ -71,15 +72,17 @@ test("GET -> 'BASE_URL_PRODUCTS?category = category.id' should status code 200, 
     expect(res.body).toHaveLength(1)
     expect(res.body[0].category).toBeDefined()
     expect(res.body[0].productImgs).toBeDefined()
+    expect(res.body[0].brand).toBeDefined()
 });
 
-test("GET ONE -> 'BASE_URL_PRODUCTS/:id' should status code 200 and res.body.title === xiaomi 12",async()=>{
+test("GET ONE -> 'BASE_URL_PRODUCTS/:id' should status code 200 and res.body.title === iphone 15",async()=>{
  
     const res = await request(app)
         .get(`${BASE_URL_PRODUCTS}/${productId}`)
 
     expect(res.status).toBe(200)
-    expect(res.body.title).toBe("xiaomi 12")
+    expect(res.body.brand).toBe("apple")
+    expect(res.body.title).toBe("iphone 15")
     expect(res.body.category).toBeDefined()
     expect(res.body.productImgs).toBeDefined()
 });
@@ -87,7 +90,7 @@ test("GET ONE -> 'BASE_URL_PRODUCTS/:id' should status code 200 and res.body.tit
 test("PUT -> 'BASE_URL_PRODUCTS/:id' should return status code 200 and res.body.title === body.title",async()=>{
 
     const product = {
-        title: "Iphone 12"
+        title: "Iphone 15"
     }
  
     const res = await request(app)
